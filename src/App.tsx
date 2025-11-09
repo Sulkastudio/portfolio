@@ -8,6 +8,7 @@ import imgFichier9BoardSuricarte from "figma:asset/51450df4aec665582846cc6c52f76
 import imgImage10 from "figma:asset/ffde93546cfc967c64a42aa6a0ebcbe980ffb0a0.png";
 import imgMotifSitePortfolio1 from "figma:asset/b384a85c9a2c24542417c29eb66644ba93371e3a.png";
 import { imgSophieMargnes20241 } from "./imports/svg-co1hi";
+import PortfolioPage from "./components/PortfolioPage";
 
 function IconmonstrBehance() {
   return (
@@ -116,6 +117,7 @@ function IconStylo() {
 
 export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showPortfolioPage, setShowPortfolioPage] = useState(false);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -124,6 +126,11 @@ export default function Portfolio() {
       setMobileMenuOpen(false);
     }
   };
+
+  // If portfolio page is active, show it
+  if (showPortfolioPage) {
+    return <PortfolioPage onBack={() => setShowPortfolioPage(false)} />;
+  }
 
   return (
     <div className="bg-[#fffaf8] min-h-screen">
@@ -334,7 +341,10 @@ export default function Portfolio() {
 
         {/* View Portfolio Button */}
         <div className="flex justify-center">
-          <button className="bg-[#fffaf7] border-3 border-[#eddbcf] rounded-[16px] px-6 py-3 hover:bg-[#eddbcf] transition-colors">
+          <button 
+            onClick={() => setShowPortfolioPage(true)}
+            className="bg-[#fffaf7] border-3 border-[#eddbcf] rounded-[16px] px-6 py-3 hover:bg-[#eddbcf] transition-colors"
+          >
             <p className="font-['Amarante:Regular',sans-serif] text-[clamp(18px,2vw,24px)] text-[#b89781] tracking-[1.2px]">
               VOIR MON PORTFOLIO
             </p>
