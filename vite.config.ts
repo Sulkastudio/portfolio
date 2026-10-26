@@ -4,6 +4,8 @@
   import path from 'path';
 
   export default defineConfig({
+    // Servi par GitHub Pages sous /portfolio/
+    base: '/portfolio/',
     plugins: [react()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
